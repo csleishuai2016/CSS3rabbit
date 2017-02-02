@@ -1,0 +1,227 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+div.container {
+	overflow: hidden;
+}
+
+
+/*天空*/
+
+div.container>div.sky {
+	position: relative;
+	width: 100%;
+	height: 50vh;
+	background: -webkit-linear-gradient(180deg, rgba(196, 228, 253, 1) 0%, rgba(225, 255, 255, 0) 100%);
+	background: -moz-linear-gradient(180deg, rgba(196, 228, 253, 1) 0%, rgba(225, 255, 255, 0) 100%);
+	background: -ms-linear-gradient(180deg, rgba(196, 228, 253, 1) 0%, rgba(225, 255, 255, 0) 100%);
+	background: -o-linear-gradient(180deg, rgba(196, 228, 253, 1) 0%, rgba(225, 255, 255, 0) 100%);
+	background: linear-gradient(180deg, rgba(196, 228, 253, 1) 0%, rgba(225, 255, 255, 0) 100%);
+}
+
+
+/*大云朵（由两个div拼凑构成效果）动画效果：慢-快-慢，无延迟*/
+
+div.container>div.sky>div.Bigcloud-one,div.container>div.sky>div.Bigcloud-one>div.Bigcloud-two{
+	width: 100px;
+	height: 100px;
+	background-color: #fff;
+	border-radius: 50px;
+}
+
+div.container>div.sky>div.Bigcloud-one:before,
+div.container>div.sky>div.Bigcloud-one:after{
+	width: 100px;
+	height: 100px;
+	background-color: #fff;
+	border-radius: 50px;
+}
+
+div.container>div.sky>div.Bigcloud-one>div.Bigcloud-two:before,
+div.container>div.sky>div.Bigcloud-one>div.Bigcloud-two:after{
+	width: 80px;
+	height: 80px;
+	background-color: #fff;
+	border-radius: 40px;
+}
+
+
+div.container>div.sky>div.Bigcloud-one {
+	position: absolute;
+	top: 20%;
+	left: 110%;
+	-webkit-animation: run 6s ease-in-out 0s infinite;
+	-moz-animation: run 6s ease-in-out 0s infinite;
+	-ms-animation: run 6s ease-in-out 0s infinite;
+	animation: run 6s ease-in-out 0s infinite;
+}
+
+div.container>div.sky>div.Bigcloud-one:before {
+	content: "";
+	position: absolute;
+	top: 2px;
+	left: 68px;
+}
+
+div.container>div.sky>div.Bigcloud-one:after {
+	content: "";
+	position: absolute;
+	top: 5px;
+	left: -85px;
+}
+
+div.container>div.sky>div.Bigcloud-one>div.Bigcloud-two {
+	position: absolute;
+	top: -47px;
+	left: 17px;
+}
+
+div.container>div.sky>div.Bigcloud-one>div.Bigcloud-two:before {
+	content: "";
+	position: absolute;
+	top: 26px;
+	left: -36px;
+}
+
+div.container>div.sky>div.Bigcloud-one>div.Bigcloud-two:after {
+	content: "";
+	position: absolute;
+	top: 78px;
+	left: -40px;
+}
+
+
+/*普通云朵（利用缩放构成）*/
+
+div.container>div.sky>#Middlecloud-one-first,
+div.container>div.sky>#Middlecloud-two-first,
+div.container>div.sky>#Middlecloud-one-second,
+div.container>div.sky>#Middlecloud-two-second,
+div.container>div.sky>#Middlecloud-one-third,
+div.container>div.sky>#Middlecloud-two-third
+{
+	opacity: .7;
+	-webkit-transform: scale(.7, .7);
+	-moz-transform: scale(.7, .7);
+	-ms-transform: scale(.7, .7);
+	transform: scale(.7, .7);
+}
+
+/*第一个 慢-快-慢速率，延迟2.25s*/
+
+div.container>div.sky>#Middlecloud-one-first {
+	position: absolute;
+	top: 10%;
+	left: 110%;
+	-webkit-animation: run 6s ease-in-out 2.25s infinite;
+	-moz-animation: run 6s ease-in-out   2.25s infinite;
+	-ms-animation: run 6s ease-in-out  2.25s infinite;
+	animation: run 6s ease-in-out   2.25s infinite;
+}
+
+/*第二个 匀速开始结束无延迟*/
+
+div.container>div.sky>#Middlecloud-one-second {
+	position: absolute;
+	top: 57%;
+	left: 110%;
+	-webkit-animation: run 6s linear 0s infinite;
+	-moz-animation: run 6s linear 0s infinite;
+	-ms-animation: run 6s linear 0s infinite;
+	animation: run 6s linear 0s infinite;
+}
+
+
+
+/*第三个 匀速开始结束无延迟*/
+
+div.container>div.sky>#Middlecloud-one-third {
+	position: absolute;
+	top: 5%;
+	left: 110%;
+	-webkit-animation: run 6s linear 0s infinite;
+	-moz-animation: run 6s linear 0s infinite;
+	-ms-animation: run 6s linear 0s infinite;
+	animation: run 6s linear 0s infinite;
+}
+
+/*小云朵 匀速开始结束延迟2s*/
+
+div.container>div.sky>#Smallcloud-one,
+div.container>div.sky>#Smallcloud-two{
+	opacity: .5;
+	-webkit-transform: scale(.5, .5);
+	-moz-transform: scale(.5, .5);
+	-ms-transform: scale(.5, .5);
+	transform: scale(.5, .5);
+}
+
+div.container>div.sky>#Smallcloud-one {
+	position: absolute;
+	top: 39%;
+	left: 110%;
+	-webkit-animation: run 6s linear 2s infinite;
+	-moz-animation: run 6s linear 2s infinite;
+	-ms-animation: run 6s linear 2s infinite;
+	animation: run 6s linear 2s infinite;
+}
+
+@-webkit-keyframes run {
+	from {
+		left: 110%;
+	}
+	to {
+		left: -10%;
+	}
+}
+
+@-moz-keyframes run {
+	from {
+		left: 110%;
+	}
+	to {
+		left: -10%;
+	}
+}
+
+@-ms-keyframes run {
+	from {
+		left: 110%;
+	}
+	to {
+		left: -10%;
+	}
+}
+
+@keyframes run {
+	from {
+		left: 110%;
+	}
+	to {
+		left: -10%;
+	}
+}
+
+
+/*大地*/
+
+div.container>div.ground {
+	position: relative;
+	width: 100%;
+	height: 50vh;
+	background: -webkit-linear-gradient(0deg, rgba(148, 190, 89, 1) 0%, rgba(225, 255, 255, 0) 100%);
+	background: -moz-linear-gradient(0deg, rgba(148, 190, 89, 1) 0%, rgba(225, 255, 255, 0) 100%);
+	background: -ms-linear-gradient(0deg, rgba(148, 190, 89, 1) 0%, rgba(225, 255, 255, 0) 100%);
+	background: -o-linear-gradient(0deg, rgba(148, 190, 89, 1) 0%, rgba(225, 255, 255, 0) 100%);
+	background: linear-gradient(0deg, rgba(148, 190, 89, 1) 0%, rgba(225, 255, 255, 0) 100%);
+}
+
+div.container>div.ground>img {
+	position: absolute;
+	width: 10%;
+	height: 20vh;
+	bottom: 60px;
+	right: 200px;
+}
